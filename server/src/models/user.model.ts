@@ -5,6 +5,6 @@ export default interface User {
     firstName: string;
     lastName: string;
     dateJoined: Date;
-    tracksCreatd: ObjectId[];
-    submissions: ObjectId[];
+    tracksCreatd?: ObjectId[];
+    submissions?: ObjectId[];
 }

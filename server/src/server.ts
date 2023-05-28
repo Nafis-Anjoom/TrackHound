@@ -1,21 +1,36 @@
 import express, {Application, Request, Response} from "express";
 import * as http from "http";
 import cors from "cors";
+import { container } from 'tsyringe';
+import UserController from "./controllers/user.controller";
+import MongoDBService from "./services/database.service";
 
 export default class Server {
-	private readonly port: number;
+	private port: number;
 	private express: Application;
 	private server: http.Server | undefined;
 
 	constructor(port: number) {
 		console.info(`Server::<init>( ${port} )`);
+		this.intialize(port);
+		
+	}
 
+
+
+	async intialize(port: number) {
 		this.port = port;
 		this.express = express();
+		await this.registerServices();
+		const userController = container.resolve(UserController);
+
 
 		this.registerMiddleware();
-		this.registerRoutes();
+		this.registerRoutes(userController);
+
 	}
+
+
 
 	/**
 	 * Starts the server. Returns a promise that resolves if success. Promises are used
@@ -31,7 +46,7 @@ export default class Server {
 				console.error("Server::start() - server already listening");
 				reject();
 			} else {
-				this.server = this.express.listen(this.port, () => {
+				this.server = this.express.listen(this.port, () => { 
 					console.info(`Server::start() - server listening on port: ${this.port}`);
 					resolve();
 				}).on("error", (err: Error) => {
@@ -75,12 +90,18 @@ export default class Server {
 	}
 
 	// Registers all request handlers to routes
-	private registerRoutes() {
+	private registerRoutes(userController: UserController) {
 		this.express.get("/echo", (req: Request, res: Response) => {
             const message = req.query.message;
             res.send(`Echo: ${message}`);
         });
 
+		this.express.use('/user', userController.routes());
+	}
 
+	private async registerServices() {
+		const mongodb = new MongoDBService();
+		await mongodb.intialize();
+		container.register<MongoDBService>(MongoDBService, { useValue: mongodb});
 	}
 }

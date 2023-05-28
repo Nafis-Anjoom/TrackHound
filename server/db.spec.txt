@@ -1,0 +1,25 @@
+Track
+- name: string
+- creator: User
+- rating: number
+- startPos: geo
+- endPos: geo
+- dateCreated: dateTime
+- comments: objectId<Comment>[]
+- submissions: objectId<Submission>[]
+
+User:
+- name: string
+- dateJoined: dateTime
+- tracksCreated: objectId<Track>[]
+- submissions: objectId<Submission>[]
+
+Submission:
+- user: {name: string, userId: objectId<User>}
+- time: number
+- rating: number
+
+Comment:
+- body: string
+- dateCreated: dateTime
+- author: {name: string, userId: objectId<Comment>[]}

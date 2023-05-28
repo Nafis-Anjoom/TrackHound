@@ -1,13 +1,16 @@
+import 'reflect-metadata';
 import Server from "./server";
 
 /**
  * Main app class that is run with the node command. Starts the server.
  */
 export class App {
-	public initServer(port: number) {
+	public async initServer(port: number) {
 		console.info(`App::initServer( ${port} ) - start`);
 
 		const server = new Server(port);
+		
+		
 		return server.start().then(() => {
 			console.info("App::initServer() - started");
 		}).catch((err: Error) => {
