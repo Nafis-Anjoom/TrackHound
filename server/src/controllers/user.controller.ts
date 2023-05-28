@@ -8,7 +8,7 @@ import MongoDBService from "../services/database.service";
 @singleton()
 export default class UserController {
     users: Collection<User>;
-    router: Router;
+    private router: Router;
 
     // TODO: figure out why Interface don't work with injectable
     constructor(mongoDbService: MongoDBService) {
@@ -35,9 +35,8 @@ export default class UserController {
         return result;
     }
 
-    private async updateUser(userId: string, user: User) {
+    private async updateUser(userId: string, updatedUser: User) {
         const query = { _id: new ObjectId(userId) };
-        const updatedUser = user;
         const result = await this.users.updateOne(query, { $set: updatedUser });
         return result;
     } 
