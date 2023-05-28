@@ -1,7 +1,9 @@
 import * as mongoDB from "mongodb";
+import { Collection } from "mongodb";
 import * as dotenv from "dotenv";
 import IMongoDbService from "./imongodb.service";
 import ICollections from "./icollections";
+import User from "../models/user.model";
 
 export default class MongoDBService implements IMongoDbService {
     collections: ICollections = {};

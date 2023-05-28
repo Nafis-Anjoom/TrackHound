@@ -7,7 +7,7 @@ import MongoDBService from "../services/database.service";
 @autoInjectable()
 @singleton()
 export default class UserController {
-    users: Collection;
+    users: Collection<User>;
     router: Router;
 
     // TODO: figure out why Interface don't work with injectable
