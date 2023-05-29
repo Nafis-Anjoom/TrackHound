@@ -6,6 +6,7 @@ import MongoDBService from "./services/database.service";
 import * as dotenv from "dotenv";
 
 import './controllers/user.controller';
+import './controllers/track.controller';
 
 export async function main() {
     dotenv.config();
