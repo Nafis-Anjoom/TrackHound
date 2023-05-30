@@ -2,7 +2,7 @@ import "reflect-metadata";
 import * as bodyParser from 'body-parser';
 import { Container } from "inversify";
 import { InversifyExpressServer } from "inversify-express-utils";
-import MongoDBService from "./services/database.service";
+import MongoDBService from "./mongodb";
 import * as dotenv from "dotenv";
 
 import './controllers/user.controller';

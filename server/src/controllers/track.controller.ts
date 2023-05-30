@@ -1,52 +1,38 @@
-import express, { Router } from "express";
-import { Collection, DeleteResult, ObjectId } from "mongodb";
-import MongoDBService from "../services/database.service";
-import Track from "../models/track.model";
 import { controller, httpDelete, httpGet, httpPost, httpPut, requestBody, requestParam } from "inversify-express-utils";
 import { inject } from "inversify";
+import TrackService from "../services/track.service";
+import TrackDTO from "../dto/track.dto";
 
 @controller('/track')
 export default class TrackController {
-    tracks: Collection<Track>;
-    private router: Router;
+    trackService: TrackService;
 
-    constructor(@inject('MongoDBService') mongoDbService: MongoDBService) {
-        this.tracks = mongoDbService.collections.tracks;
-        this.router = Router();
-        this.router.use(express.json());
+    constructor(@inject('TrackService') trackService: TrackService) {
+        this.trackService = trackService;
     }
 
     @httpPost('/')
-    private async createTrack(@requestBody() track: Track) {
-        const result = await this.tracks.insertOne(track);
-        return result;
+    private async createTrack(@requestBody() track: TrackDTO) {
+        
     }
 
     @httpGet('/')
-    private async getAllTracks(): Promise<Track[]> {
-        const result = await this.tracks.find<Track>({}).toArray();
-        return result;
+    private async getAllTracks() {
+        
     }
 
     @httpGet('/:id')
-    private async getTrackById(@requestParam('id') trackId: string): Promise<Track> {
-        const query = { _id: new ObjectId(trackId) };
-        const result = await this.tracks.findOne(query);
-        return result;
+    private async getTrackById(@requestParam('id') trackId: string) {
+    
     }
 
     @httpDelete('/:id')
-    private async deleteTrack(@requestParam('id') trackId: string): Promise<DeleteResult> {
-        const query = { _id: new ObjectId(trackId) };
-        const result = await this.tracks.deleteOne(query);
-        return result;
+    private async deleteTrack(@requestParam('id') trackId: string) {
+        
     }
 
     @httpPut(':/id')
-    private async updateTrack(@requestParam('id') trackId: string, @requestBody() updatedTrack: Track) {
-        const query = { _id: new ObjectId(trackId) };
-        const result = await this.tracks.updateOne(query, { $set: updatedTrack });
-        return result;
-
+    private async updateTrack(@requestParam('id') trackId: string, @requestBody() updatedTrack: TrackDTO) {
+        
     }
 }

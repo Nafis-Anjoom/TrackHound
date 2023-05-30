@@ -1,42 +1,33 @@
-import { Collection, DeleteResult, InsertOneResult, ObjectId } from "mongodb";
-import User from "../models/user.model";
-import MongoDBService from "../services/database.service";
 import { controller, httpDelete, httpGet, httpPost, httpPut, requestBody, requestParam } from "inversify-express-utils";
 import { inject } from "inversify";
+import UserService from "../services/user.service";
+import UserDTO from "../dto/user.dto";
 
 @controller('/user')
 export default class UserController {
-    users: Collection<User>;
+    userService: UserService;
 
-    constructor(@inject("MongoDBService")  mongoDbService: MongoDBService) {
-        this.users =  mongoDbService.collections.users;
+    constructor(@inject("UserService")  userService: UserService) {
+        this.userService = userService;
     }
 
     @httpPost('/')
-    private async createUser(@requestBody() user: User): Promise<InsertOneResult> {
-        const result = await this.users.insertOne(user);
-        return result;
+    private async createUser(@requestBody() user: UserDTO) {
+        
     }
 
     @httpGet('/:id')
-    private async getUserById(@requestParam("id") userId: string): Promise<User> {
-        const query = { _id: new ObjectId(userId) };
-        await this.users.findOne(query);
-        const result = (await this.users.findOne<User>(query));
-        return result;
+    private async getUserById(@requestParam("id") userId: string) {
+        
     }
 
     @httpDelete('/:id')
-    private async deleteUser(@requestParam("id") userId: string): Promise<DeleteResult> {
-        const query = { _id: new ObjectId(userId) };
-        const result = await this.users.deleteOne(query);
-        return result;
+    private async deleteUser(@requestParam("id") userId: string) {
+        
     }
 
     @httpPut('/:id')
-    private async updateUser(@requestParam("id") userId: string, @requestBody() updatedUser: User) {
-        const query = { _id: new ObjectId(userId) };
-        const result = await this.users.updateOne(query, { $set: updatedUser });
-        return result;
+    private async updateUser(@requestParam("id") userId: string, @requestBody() updatedUser: UserDTO) {
+       
     } 
 }

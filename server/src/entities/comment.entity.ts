@@ -1,8 +1,12 @@
 import { ObjectId } from "mongodb";
 
 export default interface Comment {
+    _id: ObjectId;
+    _trackId: ObjectId;
     body: string;
-    id?: ObjectId;
     datePosted: Date;
-    author: {firstName: string, lastName: string, userId: ObjectId};
+    author: {
+        _id: ObjectId;
+        userName: String;
+    }
 }
