@@ -2,26 +2,43 @@ import "reflect-metadata";
 import * as bodyParser from 'body-parser';
 import { Container } from "inversify";
 import { InversifyExpressServer } from "inversify-express-utils";
-import MongoDBService from "./mongodb";
-import * as dotenv from "dotenv";
+import MongoDB from "./mongodb";
+import 'dotenv/config';
+import { intializeMappings } from './mappings/mapper';
+
+import UserService from "./services/user.service";
+import UserRepository from "./repositories/user.repository";
+import TrackRepository from "./repositories/track.repository";
+import TrackService from "./services/track.service";
 
 import './controllers/user.controller';
 import './controllers/track.controller';
 
 export async function main() {
-    dotenv.config();
-    const container = new Container();
+    const container = new Container({ autoBindInjectable: true });
 
-    const mongodb = new MongoDBService();
+    // intialize async mongo service and inject as singleton
+    const mongodb = new MongoDB();
     await mongodb.intialize();
-    container.bind<MongoDBService>("MongoDBService").toDynamicValue(() => mongodb).inSingletonScope();
 
+    // TODO: investigate why dependencies cannot by bound to self
+    container.bind<MongoDB>("MongoDB").toDynamicValue(() => mongodb).inSingletonScope();
+    container.bind<TrackService>("TrackService").to(TrackService).inSingletonScope();
+    container.bind<TrackRepository>("TrackRepository").to(TrackRepository).inSingletonScope();
+    container.bind<UserService>("UserService").to(UserService).inSingletonScope();
+    container.bind<UserRepository>("UserRepository").to(UserRepository).inSingletonScope();
+
+    // initialize mappings
+    intializeMappings();
+
+    // initialize express app
     const server = new InversifyExpressServer(container);
     server.setConfig((app) => {
         app.use(bodyParser.urlencoded({extended: true}));
         app.use(bodyParser.json());
     })
 
+    // run the server
     const app = server.build();
 
     app.listen(process.env.PORT, () => {

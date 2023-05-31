@@ -1,12 +1,11 @@
+import TrackPartialDTO from "./trackPartial.dto";
 import { AutoMap } from '@automapper/classes';
 
-export default class SubmissionDTO {
+export default class SubmissionPartialDTO {
     @AutoMap()
-    id?: string;
-    @AutoMap()
-    trackId: string;
-    @AutoMap()
-    userId: string;
+    id: string;
+    @AutoMap(() => TrackPartialDTO)
+    track: TrackPartialDTO;
     @AutoMap()
     time: number;
     @AutoMap()
@@ -15,19 +14,16 @@ export default class SubmissionDTO {
     datePosted: Date;
 
     constructor(
-        trackId: string,
-        userId: string,
+        id: string,
+        track: TrackPartialDTO,
         time: number,
         rating: number,
-        datePosted: Date,
-        id?: string
+        datePosted: Date
       ) {
         this.id = id;
-        this.trackId = trackId;
-        this.userId = userId;
+        this.track = track;
         this.time = time;
         this.rating = rating;
         this.datePosted = datePosted;
       }
-    
 }

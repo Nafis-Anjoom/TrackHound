@@ -5,16 +5,19 @@ import { injectable } from "inversify";
 @injectable()
 export default class MongoDB {
     private client: mongoDB.MongoClient;
-    private database: mongoDB.Db;
 
-    async intialize() {
+    constructor() {
         dotenv.config();
-        this.client = new mongoDB.MongoClient(process.env.DB_CONN_STRING); 
-        await this.client.connect();
-        this.database = this.client.db(process.env.DB_NAME);
+        this.client = new mongoDB.MongoClient(process.env.DB_CONN_STRING ?? ""); 
     }
 
-    public getCollection<T>(collectionName: string) {
-        return this.database.collection<T>(collectionName);
+    async intialize() {   
+        await this.client.connect();
+        
+    }
+
+    public getCollection<T extends mongoDB.BSON.Document>(collectionName: string) {
+        const database = this.client.db(process.env.DB_NAME);
+        return database.collection<T>(collectionName);
     }
 }
