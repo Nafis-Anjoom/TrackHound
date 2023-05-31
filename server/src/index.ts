@@ -9,6 +9,7 @@ import UserService from "./services/user.service";
 import UserRepository from "./repositories/user.repository";
 import TrackRepository from "./repositories/track.repository";
 import TrackService from "./services/track.service";
+import CommentRepository from "./repositories/comment.repository";
 
 import './controllers/user.controller';
 import './controllers/track.controller';
@@ -26,6 +27,7 @@ export async function main() {
     container.bind<TrackRepository>("TrackRepository").to(TrackRepository).inSingletonScope();
     container.bind<UserService>("UserService").to(UserService).inSingletonScope();
     container.bind<UserRepository>("UserRepository").to(UserRepository).inSingletonScope();
+    container.bind<CommentRepository>("CommentRepository").to(CommentRepository).inSingletonScope();
 
     // initialize express app
     const server = new InversifyExpressServer(container);
