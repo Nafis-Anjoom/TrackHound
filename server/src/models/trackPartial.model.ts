@@ -3,5 +3,4 @@ export default interface TrackPartial {
   name: string;
   city: string;
   province: string;
-  rating: string;
 }

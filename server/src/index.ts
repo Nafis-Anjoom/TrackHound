@@ -13,6 +13,7 @@ import CommentRepository from "./repositories/comment.repository";
 
 import './controllers/user.controller';
 import './controllers/track.controller';
+import SubmissionRepository from "./repositories/submission.repository";
 
 export async function main() {
     const container = new Container({ autoBindInjectable: true });
@@ -28,6 +29,7 @@ export async function main() {
     container.bind<UserService>("UserService").to(UserService).inSingletonScope();
     container.bind<UserRepository>("UserRepository").to(UserRepository).inSingletonScope();
     container.bind<CommentRepository>("CommentRepository").to(CommentRepository).inSingletonScope();
+    container.bind<SubmissionRepository>("SubmissionRepository").to(SubmissionRepository).inSingletonScope();
 
     // initialize express app
     const server = new InversifyExpressServer(container);

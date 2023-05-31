@@ -3,6 +3,7 @@ import { inject } from "inversify";
 import UserService from "../services/user.service";
 import User from "../models/user.model";
 import 'dotenv/config';
+import Submission from "../models/submission.model";
 
 // TODO: handle errors properly
 
@@ -54,5 +55,15 @@ export default class UserController extends BaseHttpController {
         } catch(error) {
             return this.internalServerError();
         }
-    } 
+    }
+    
+    @httpPost('/submission')
+    private async createSubmission(@requestBody() submission: Submission) {
+        try {
+            await this.userService.createSubmission(submission);
+            return this.json(submission);
+        } catch(error) {
+            return this.internalServerError();
+        }
+    }
 }

@@ -3,6 +3,7 @@ import { Collection, ObjectId } from "mongodb";
 import * as dotenv from "dotenv";
 import MongoDB from "../mongodb";
 import User from "../models/user.model";
+import SubmissionPartial from "../models/submissionPartial.model";
 
 @injectable()
 export default class UserRepository {
@@ -24,11 +25,15 @@ export default class UserRepository {
     }
 
     public async updateUser(id: ObjectId, updatedUser: User) {
-        const result = await this.users.updateOne({ _id: id }, { $set: updatedUser }, { ignoreUndefined: true });
+        await this.users.updateOne({ _id: id }, { $set: updatedUser }, { ignoreUndefined: true });
     }
 
     public async deleteUser(id: ObjectId) {
         await this.users.deleteOne({ _id: id });
+    }
+
+    public async addSubmission(userId: string, submissionPartial: SubmissionPartial) {
+        await this.users.updateOne({ _id: new ObjectId(userId) }, { $push: {submissions: submissionPartial} });
     }
     
 }
