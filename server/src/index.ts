@@ -4,7 +4,6 @@ import { Container } from "inversify";
 import { InversifyExpressServer } from "inversify-express-utils";
 import MongoDB from "./mongodb";
 import 'dotenv/config';
-import { intializeMappings } from './mappings/mapper';
 
 import UserService from "./services/user.service";
 import UserRepository from "./repositories/user.repository";
@@ -27,9 +26,6 @@ export async function main() {
     container.bind<TrackRepository>("TrackRepository").to(TrackRepository).inSingletonScope();
     container.bind<UserService>("UserService").to(UserService).inSingletonScope();
     container.bind<UserRepository>("UserRepository").to(UserRepository).inSingletonScope();
-
-    // initialize mappings
-    intializeMappings();
 
     // initialize express app
     const server = new InversifyExpressServer(container);

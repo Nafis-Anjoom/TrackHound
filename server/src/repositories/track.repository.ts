@@ -2,7 +2,7 @@ import { inject, injectable } from "inversify";
 import { Collection, ObjectId } from "mongodb";
 import 'dotenv/config';
 import MongoDB from "../mongodb";
-import Track from "../entities/track.entity";
+import Track from "../models/track.model";
 
 
 @injectable()
@@ -18,8 +18,8 @@ export default class TrackRepository {
         return result;
     }
     
-    public async getTrackById(id: ObjectId) {
-        const result = await this.tracks.findOne({ _id: id });
+    public async getTrackById(id: string) {
+        const result = await this.tracks.findOne({ _id: new ObjectId(id) });
         return result;
     }
 
@@ -33,7 +33,7 @@ export default class TrackRepository {
         const result = await this.tracks.updateOne({_id: id}, { $set: updatedTrack }, { ignoreUndefined: true });
     }
 
-    public async deleteTrack(id: ObjectId) {
-        const result = await this.tracks.deleteOne({_id: id});
+    public async deleteTrack(id: string) {
+        const result = await this.tracks.deleteOne({_id: new ObjectId(id)});
     }
 }

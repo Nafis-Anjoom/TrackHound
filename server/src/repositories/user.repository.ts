@@ -2,7 +2,7 @@ import { injectable } from "inversify";
 import { Collection, ObjectId } from "mongodb";
 import * as dotenv from "dotenv";
 import MongoDB from "../mongodb";
-import User from "../entities/user.entity";
+import User from "../models/user.model";
 
 @injectable()
 export default class UserRepository {

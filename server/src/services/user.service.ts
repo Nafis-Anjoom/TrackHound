@@ -1,8 +1,6 @@
 import { inject, injectable } from "inversify";
 import UserRepository from "../repositories/user.repository";
-import UserDTO from "../dto/user.dto";
-import { mapper } from "../mappings/mapper";
-import User from "../entities/user.entity";
+import User from "../models/user.model";
 import { ObjectId } from "mongodb";
 
 @injectable()
@@ -14,15 +12,13 @@ export default class UserService {
         this.userRepository = userRepository;
     }
 
-    public async createUser(userDTO: UserDTO) {
-        const user = mapper.map(userDTO, UserDTO, User);
+    public async createUser(user: User) {
         const result = await this.userRepository.createUser(user);
         return result;
     }
 
-    public async updateUser(id: string, updatedUser: UserDTO) {
-        const user = mapper.map(updatedUser, UserDTO, User);
-        await this.userRepository.updateUser(new ObjectId(id), user);
+    public async updateUser(id: string, updatedUser: User) {
+        await this.userRepository.updateUser(new ObjectId(id), updatedUser);
     }
 
     public async deleteUser(id: string) {
@@ -31,7 +27,6 @@ export default class UserService {
 
     public async getUser(id: string) {
         const user = await this.userRepository.getUserById(new ObjectId(id));
-        const mappedUser = mapper.map(user, User, UserDTO);
-        return mappedUser;
+        return user;
     }
 }

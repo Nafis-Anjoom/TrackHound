@@ -1,7 +1,7 @@
 import { BaseHttpController, controller, httpDelete, httpGet, httpPost, httpPut, requestBody, requestParam } from "inversify-express-utils";
 import { inject } from "inversify";
 import UserService from "../services/user.service";
-import UserDTO from "../dto/user.dto";
+import User from "../models/user.model";
 import 'dotenv/config';
 
 // TODO: handle errors properly
@@ -16,11 +16,10 @@ export default class UserController extends BaseHttpController {
     }
 
     @httpPost('/')
-    private async createUser(@requestBody() user: UserDTO) {
+    private async createUser(@requestBody() user: User) {
         try {
-            const result = await this.userService.createUser(user);
-            user.id = result.insertedId.toString();
-            return this.created(`${process.env.URL || 'localhost:4321'}/user/${user.id}`, user);
+            await this.userService.createUser(user);
+            return this.json(user, 201);
         } catch(error) {
             return this.internalServerError();
         }
@@ -40,18 +39,18 @@ export default class UserController extends BaseHttpController {
     @httpDelete('/:id')
     private async deleteUser(@requestParam("id") userId: string) {
         try {
-            const result = await this.userService.deleteUser(userId);
-            return this.ok({"id": userId});
+            await this.userService.deleteUser(userId);
+            return this.json({"id": userId}, 200);
         } catch(error) {
             return this.internalServerError();
         }
     }
 
     @httpPut('/:id')
-    private async updateUser(@requestParam("id") userId: string, @requestBody() updatedUser: UserDTO) {
+    private async updateUser(@requestParam("id") userId: string, @requestBody() updatedUser: User) {
         try {
-            const result = await this.userService.updateUser(userId, updatedUser);
-            return this.ok(updatedUser);
+            await this.userService.updateUser(userId, updatedUser);
+            return this.json(updatedUser, 200);
         } catch(error) {
             return this.internalServerError();
         }

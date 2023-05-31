@@ -1,6 +1,6 @@
 import { BaseHttpController, controller, httpDelete, httpGet, httpPost, httpPut, requestBody, requestParam } from "inversify-express-utils";
 import TrackService from "../services/track.service";
-import TrackDTO from "../dto/track.dto";
+import Track from "../models/track.model";
 
 @controller('/track')
 export default class TrackController extends BaseHttpController{
@@ -12,15 +12,13 @@ export default class TrackController extends BaseHttpController{
     }
 
     @httpPost('/')
-    private async createTrack(@requestBody() track: TrackDTO) {
+    private async createTrack(@requestBody() track: Track) {
         try {
-            const result = await this.trackService.createTrack(track);
-            track.id = result.insertedId.toString();
-            return this.created(`${process.env.URL || 'localhost:4321'}/track/${track.id}`, track); 
+            await this.trackService.createTrack(track);
+            return this.json(track, 201); 
         } catch(error) {
             return this.internalServerError();
         }
-        
     }
 
     @httpGet('/')
@@ -46,17 +44,17 @@ export default class TrackController extends BaseHttpController{
     @httpDelete('/:id')
     private async deleteTrack(@requestParam('id') trackId: string) {
         try {
-            const result = await this.trackService.deleteTrack(trackId);
-            return this.ok(trackId);
+            await this.trackService.deleteTrack(trackId);
+            return this.json({"id": trackId}, 200);
         } catch(error) {
             return this.internalServerError();
         }
     }
 
     @httpPut(':/id')
-    private async updateTrack(@requestParam('id') trackId: string, @requestBody() updatedTrack: TrackDTO) {
+    private async updateTrack(@requestParam('id') trackId: string, @requestBody() updatedTrack: Track) {
         try {
-            const result = await this.trackService.updateTrack(trackId, updatedTrack);
+            await this.trackService.updateTrack(trackId, updatedTrack);
             return this.json(updatedTrack, 200);
         } catch(error) {
             return this.internalServerError();
