@@ -3,16 +3,20 @@ import TrackRepository from "../repositories/track.repository";
 import CommentRepository from "../repositories/comment.repository"; 
 import Track from "../models/track.model";
 import Comment from "../models/comment.model";
+import SubmissionRepository from "../repositories/submission.repository";
 
 @injectable()
 export default class TrackService {
     trackRepository: TrackRepository;
     commentRepository: CommentRepository;
+    submissionRepository: SubmissionRepository;
 
     constructor(@inject("TrackRepository") trackRepository: TrackRepository, 
-        @inject("CommentRepository") commentRepository: CommentRepository) {
+        @inject("CommentRepository") commentRepository: CommentRepository,
+        @inject("SubmissionRepository") submissionRepository: SubmissionRepository) {
         this.trackRepository = trackRepository;
         this.commentRepository = commentRepository;
+        this.submissionRepository = submissionRepository;
     }
 
     public async createTrack(track: Track) {
@@ -55,6 +59,10 @@ export default class TrackService {
         await this.commentRepository.deleteComment(id);
     }
     
+    public async getSubmissionsByTrackId(trackId: string) {
+        const result = this.submissionRepository.getSubmissionsByTrackId(trackId);
+        return result;
+    }
     
     
 }

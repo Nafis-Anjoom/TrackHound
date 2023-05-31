@@ -104,5 +104,15 @@ export default class TrackController extends BaseHttpController{
         }
     }
 
+    @httpGet('/:id/submission')
+    private async getSubmissionsByTrackId(@requestParam('id') trackId: string) {
+        try {
+            const result = await this.trackService.getSubmissionsByTrackId(trackId);
+            return this.json({ "submissions": result }, 200);
+        } catch(error) {
+            return this.internalServerError();
+        }
+    }
+
     
 }
