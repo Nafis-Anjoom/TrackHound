@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "7a808944-bb96-4972-a468-f15fdcb0d7da",
+		"name": "trailhound",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24397054"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Alice\",\r\n    \"lastName\": \"Smith\",\r\n    \"userName\": \"viper\",\r\n    \"bio\": \"I enjoy exploring nature\",\r\n    \"dateJoined\": \"2012-04-23T18:25:43.511Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user/6476b145254744b32cd5f13d",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"6476b145254744b32cd5f13d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user/6476b145254744b32cd5f13d",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"6476b145254744b32cd5f13d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"updated\",\r\n    \"lastName\": \"updated\",\r\n    \"dateJoined\": \"2022-04-23T18:25:43.511Z\",\r\n    \"userName\": \"updated\",\r\n    \"bio\": \"updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/6476b145254744b32cd5f13d",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"6476b145254744b32cd5f13d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create submission",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "track",
+			"item": [
+				{
+					"name": "create track",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"EventABC\",\r\n  \"creator\": {\r\n    \"id\": \"a1b2c3d4e5f6\",\r\n    \"userName\": \"user001\"\r\n  },\r\n  \"rating\": 3,\r\n  \"startPos\": 7,\r\n  \"endPos\": 17,\r\n  \"city\": \"Tokyo\",\r\n  \"province\": \"Tokyo\",\r\n  \"dateCreated\": \"2023-06-12T09:15:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/track",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tracks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/track",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get track by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/track/6476abe2e4307bcd1aa35ea1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track",
+								"6476abe2e4307bcd1aa35ea1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete track",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/track/6476aa8b7057c7a5e8b8b9e7",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track",
+								"6476aa8b7057c7a5e8b8b9e7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post a comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trackId\": \"6476ab27cf1869659ac7e43c\",\r\n    \"body\": \"I dont like this\",\r\n    \"datePosted\": \"2023-05-30T10:00:00Z\",\r\n    \"author\": {\r\n        \"id\": \"6476a9ac469f5668003229a1\",\r\n        \"userName\": \"musiclover\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/track/comment",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get comments by trackId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/track/6476ab27cf1869659ac7e43c/comment",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track",
+								"6476ab27cf1869659ac7e43c",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trackId\": \"6476ab27cf1869659ac7e43c\",\r\n    \"body\": \"This track is amazing!I would love to run again\",\r\n    \"datePosted\": \"2023-05-30T10:00:00Z\",\r\n    \"author\": {\r\n        \"id\": \"6476a9ac469f5668003229a1\",\r\n        \"userName\": \"musiclover\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/track/6476ab27cf1869659ac7e43c/comment/6476c04571dfe6f521cf6edf",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track",
+								"6476ab27cf1869659ac7e43c",
+								"comment",
+								"6476c04571dfe6f521cf6edf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/track/6476ab27cf1869659ac7e43c/comment/6476c04571dfe6f521cf6edf",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track",
+								"6476ab27cf1869659ac7e43c",
+								"comment",
+								"6476c04571dfe6f521cf6edf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get submissions by trackId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/track/6476ab27cf1869659ac7e43c/submission",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"track",
+								"6476ab27cf1869659ac7e43c",
+								"submission"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "api",
+			"value": "http://localhost:4321"
+		}
+	]
+}

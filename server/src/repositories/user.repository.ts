@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import { Collection, ObjectId } from "mongodb";
-import * as dotenv from "dotenv";
+import 'dotenv/config';
 import MongoDB from "../mongodb";
 import User from "../models/user.model";
 import SubmissionPartial from "../models/submissionPartial.model";
@@ -10,7 +10,6 @@ export default class UserRepository {
     users: Collection<User>;
 
     constructor(mongoDb: MongoDB) {
-        dotenv.config();
         this.users = mongoDb.getCollection<User>(process.env.USERS_COLLECTION_NAME ?? 'users');
     }
 
@@ -35,5 +34,4 @@ export default class UserRepository {
     public async addSubmission(userId: string, submissionPartial: SubmissionPartial) {
         await this.users.updateOne({ _id: new ObjectId(userId) }, { $push: {submissions: submissionPartial} });
     }
-    
 }

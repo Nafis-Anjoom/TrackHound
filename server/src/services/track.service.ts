@@ -63,6 +63,4 @@ export default class TrackService {
         const result = this.submissionRepository.getSubmissionsByTrackId(trackId);
         return result;
     }
-    
-    
 }
