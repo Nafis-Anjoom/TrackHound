@@ -1,6 +1,4 @@
 .map-container {
-    display: flex;
     background-color: red;
-    width: 40%;
-    height: 90%;
+    height: 100%;
 }
