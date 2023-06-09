@@ -1,7 +1,14 @@
 .app-map-panel-container {
     display: flex;
-    width: 100%;
+    width: 40%;
     height: 100%;
+}
+
+.main-content {
+    display: flex;
+    width: 100%;
+    height: calc(99vh - var(--nav-bar-height));
+    background-color: green;
 }
 
 .app-map-panel {
@@ -9,7 +16,8 @@
     height: 100%;
 }
 
-.app-trail-information {
-    width: 60%;
-    overflow-y: auto;
+.trail-content-container {
+    padding: 1rem;
+    flex-grow: 1;
+
 }

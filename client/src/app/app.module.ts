@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MapModule } from './map/map.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TrailInfoModule } from './trail-info/trail-info.module';
+import { TrackSubmissionsModule } from './track-submissions/track-submissions.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TrailInfoModule } from './trail-info/trail-info.module';
     AppRoutingModule,
     MapModule,
     HttpClientModule,
-    TrailInfoModule
+    TrailInfoModule,
+    TrackSubmissionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

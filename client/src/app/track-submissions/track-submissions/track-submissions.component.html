@@ -1,0 +1,20 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Date Posted</th>
+                <th>Time</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let submission of submissions; even as isEven;">
+            <tr>
+                <td>{{submission.userName}}</td>
+                <td>{{submission.datePosted}}</td>
+                <td>{{submission.time}}</td>
+                <td>{{submission.rating}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

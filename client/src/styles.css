@@ -1,3 +1,8 @@
-html, body {
-    height: 100%;
+:root {
+    --nav-bar-height: 80px;
 }
+
+html, body {
+    overflow: hidden;
+}
+
