@@ -9,25 +9,37 @@ export class TrackSubmissionsComponent {
   submissions = [
     {
       userName: "john doe",
-      time: 120,
+      time: 13745000,
       rating: 4,
       datePosted: new Date("2023-05-30T12:34:56Z") 
     },
     {
       userName: "john doe",
-      time: 120,
+      time: 13745000,
       rating: 4,
       datePosted: new Date("2023-05-30T12:34:56Z") 
     },
     {
       userName: "john doe",
-      time: 120,
+      time: 13745000,
       rating: 4,
       datePosted: new Date("2023-05-30T12:34:56Z") 
     },
     {
       userName: "john doe",
-      time: 120,
+      time: 13745000,
+      rating: 4,
+      datePosted: new Date("2023-05-30T12:34:56Z") 
+    },
+    {
+      userName: "john doe",
+      time: 13745000,
+      rating: 4,
+      datePosted: new Date("2023-05-30T12:34:56Z") 
+    },
+    {
+      userName: "john doe",
+      time: 13745000,
       rating: 4,
       datePosted: new Date("2023-05-30T12:34:56Z") 
     }

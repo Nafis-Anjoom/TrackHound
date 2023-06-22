@@ -1,5 +1,5 @@
 <div>
-    <table>
+    <table class="submission-table">
         <thead>
             <tr>
                 <th>User Name</th>
@@ -11,8 +11,8 @@
         <tbody *ngFor="let submission of submissions; even as isEven;">
             <tr>
                 <td>{{submission.userName}}</td>
-                <td>{{submission.datePosted}}</td>
-                <td>{{submission.time}}</td>
+                <td>{{submission.datePosted | date: 'medium'}}</td>
+                <td>{{submission.time | timeFormat}}</td>
                 <td>{{submission.rating}}</td>
             </tr>
         </tbody>

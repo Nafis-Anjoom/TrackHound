@@ -8,7 +8,7 @@
     display: flex;
     width: 100%;
     height: calc(99vh - var(--nav-bar-height));
-    background-color: green;
+    background-color: white;
 }
 
 .app-map-panel {

@@ -1,0 +1,16 @@
+.sub-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.star-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
