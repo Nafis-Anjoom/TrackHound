@@ -1,0 +1,16 @@
+<div style="width: unset;">
+    <div class="review" *ngFor="let review of reviews;">
+        <div class="review-container">
+            <div class="review-header">
+                <div>
+                    <img class="review-star-icon" src="../../../assets/star.svg" alt="">
+                    <span>9.1</span>
+                </div>
+                <div class="review-title">{{review.title}}</div>
+                <span class="user-name">{{review.author.userName}}</span>
+                <span class="date-posted">{{review.datePosted}}</span>
+            </div> 
+            <div class="review-body">{{review.body}}</div>
+        </div>
+    </div>
+</div>

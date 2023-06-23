@@ -7,6 +7,8 @@ import { MapModule } from './map/map.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TrailInfoModule } from './trail-info/trail-info.module';
 import { TrackSubmissionsModule } from './track-submissions/track-submissions.module';
+import { ReviewsModule } from './reviews/reviews.module';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { TrackSubmissionsModule } from './track-submissions/track-submissions.mo
     MapModule,
     HttpClientModule,
     TrailInfoModule,
-    TrackSubmissionsModule
+    TrackSubmissionsModule,
+    ReviewsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
