@@ -9,16 +9,22 @@
     width: 100%;
     height: calc(99vh - var(--nav-bar-height));
     background-color: white;
+    justify-content: center;
+}
+
+.content-center {
+    display: flex;
+    width: 80%;
 }
 
 .app-map-panel {
-    width: 40%;
+    width: 50%;
     height: 100%;
 }
 
 .trail-content-container {
     padding: 1rem;
     /* flex-grow: 1; */
-    width: 60%;
+    width: 50%;
     overflow-y: auto;
 }

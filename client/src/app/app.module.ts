@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TrailInfoModule } from './trail-info/trail-info.module';
 import { TrackSubmissionsModule } from './track-submissions/track-submissions.module';
 import { ReviewsModule } from './reviews/reviews.module';
-
+import { RatingsModule } from './ratings/ratings.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { ReviewsModule } from './reviews/reviews.module';
     HttpClientModule,
     TrailInfoModule,
     TrackSubmissionsModule,
-    ReviewsModule
+    ReviewsModule,
+    RatingsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

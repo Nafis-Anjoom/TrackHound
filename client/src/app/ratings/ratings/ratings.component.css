@@ -1,0 +1,30 @@
+.ratings-container {
+    display: flex;
+    max-width: 700px;
+    flex-direction: column;
+    padding: 4px 0px;
+    box-shadow: 0 5px 5px -3px #0003,0 8px 10px 1px #00000024,0 3px 14px 2px #0000001f;
+}
+
+.rating-bar-wrapper {
+    display: flex;
+    height: 40px;
+    margin: 2px 0px;
+    width: 100%;
+    align-items: center;
+}
+.rating-bar {
+    height: 100%;
+    background-color: black;
+    border-radius: 0px 7px 7px 0px;
+}
+ 
+.rating-val {
+    width: 20px;
+    margin: 0px 7px;
+    font-weight: bold;
+}
+
+.rating-num {
+    margin-left: 4px;
+}

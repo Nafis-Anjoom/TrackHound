@@ -1,0 +1,9 @@
+<div class="ratings-container">
+    <div *ngFor="let rating of ratings_scaled; index as i">
+        <div class="rating-bar-wrapper">
+            <div class="rating-val">{{10 - i}}</div>
+            <div class="rating-bar" [style.width]="ratings_scaled[10 - i] + '%'"></div>
+            <div class="rating-num">{{ratings[10 - i]}}</div>
+        </div>
+    </div>
+</div>
