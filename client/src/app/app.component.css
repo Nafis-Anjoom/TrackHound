@@ -8,13 +8,14 @@
     display: flex;
     width: 100%;
     height: calc(99vh - var(--nav-bar-height));
-    background-color: white;
+    background-color: #cad2c5;
     justify-content: center;
 }
 
 .content-center {
     display: flex;
     width: 80%;
+    background-color: white;
 }
 
 .app-map-panel {
