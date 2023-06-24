@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TrackSubmissionsComponent } from './track-submissions/track-submissions.component';
 import { TimeFormat } from '../pipes/time-format.pipe';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,8 @@ import { TimeFormat } from '../pipes/time-format.pipe';
     TimeFormat
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [TrackSubmissionsComponent]
 })
