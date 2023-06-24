@@ -1,12 +1,5 @@
-<dialog appDialog #dialog title="More Submissions">
-    <ng-template appDialogContent>
-      <div>
-        <app-more-submissions></app-more-submissions>
-      </div>
-    </ng-template>
-  </dialog>
 <div class="submission-table-container">
-    <table class="submission-table box-shadow">
+    <table class="submission-table">
         <thead>
             <tr>
                 <th>User Name</th>
@@ -24,6 +17,4 @@
             </tr>
         </tbody>
     </table>
-    <button class="button-default">Add Submission</button>
-    <button class="button-default" (click)="dialog.showModal()">View More</button>
 </div>

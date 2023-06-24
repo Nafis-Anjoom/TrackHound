@@ -1,12 +1,11 @@
 .reviews-container {
     max-width: 700px;
-    box-shadow: 0 5px 5px -3px #0003,0 8px 10px 1px #00000024,0 3px 14px 2px #0000001f;
     padding: 0px 10px;
 }
 .review {
  display: flex;
  padding: 0px 0px 10px 0px;
- border-bottom: 1px solid black;
+ border-bottom: 3px solid var(--dark);
  width: 100%;
 }
 
@@ -44,22 +43,4 @@
 
 .review-title {
     font-size: 1.5rem;
-}
-
-.view-more-button {
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 1rem;
-    color: white;
-    font-weight: 500;
-    margin: 10px 10px 10px 0px;
-}
-
-.view-more-button:hover{
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    cursor: pointer;
 }

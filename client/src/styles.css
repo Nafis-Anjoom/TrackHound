@@ -1,5 +1,9 @@
 :root {
     --nav-bar-height: 80px;
+    --dark: #3C6255;
+    --semi-dark: #61876E;
+    --semi-light: #A6BB8D;
+    --light: #EAE7B1;
 }
 
 html, body {
@@ -8,3 +12,30 @@ html, body {
     font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
 }
 
+dialog {
+    max-width: 900px;
+    width: 100%;
+    border: none;
+}
+
+.button-default {
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+    margin: 10px 10px 10px 0px;
+}
+
+.button-default:hover{
+    background-color: white;    
+    color: var(--dark);
+    border: 1px solid var(--dark);
+    cursor: pointer;
+}
+
+.box-shadow {
+    box-shadow: 0 5px 5px -3px var(--semi-dark),0 8px 10px 1px var(--semi-light), 3px 14px 2px var(--light);
+}
