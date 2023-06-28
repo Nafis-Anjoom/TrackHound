@@ -4,12 +4,14 @@ import { TrackSubmissionsComponent } from './track-submissions/track-submissions
 import { TimeFormat } from '../pipes/time-format.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { MoreSubmissionsComponent } from './more-submissions/more-submissions.component';
+import { CreateSubmissionComponent } from './create-submission/create-submission.component';
 
 @NgModule({
   declarations: [
     TrackSubmissionsComponent,
     TimeFormat,
-    MoreSubmissionsComponent
+    MoreSubmissionsComponent,
+    CreateSubmissionComponent
   ],
   imports: [
     CommonModule,

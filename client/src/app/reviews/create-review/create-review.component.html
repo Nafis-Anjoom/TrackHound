@@ -1,0 +1,26 @@
+<div>
+  <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+    <label for="title">Title</label>
+    <div>
+      <input id="title" maxlength="100" formControlName="title" minlength="1"/>
+    </div>
+    <label for="rating">Rating</label>
+    <select id="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <div class="body-container">
+      <label for="body">Body</label>
+      <textarea id="body" formControlName="body" maxlength="250" minlength="1"></textarea>
+    </div>
+    <button type="submit" class="button-default">Submit</button>
+  </form>
+</div>

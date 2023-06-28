@@ -1,5 +1,6 @@
 <section class="container">
   <header>
+    <button class="dialog-close-button" (click)="close()">X</button>
     <ng-container #headerVcr></ng-container>
     <h3 *ngIf="!header?.tpl">{{ title }}</h3>
   </header>
@@ -9,7 +10,6 @@
   </main>
 
   <footer>
-    <button class="button-default" (click)="close()">Close</button>
     <ng-container #footerVcr></ng-container>
   </footer>
 </section>

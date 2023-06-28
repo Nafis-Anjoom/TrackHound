@@ -1,18 +1,25 @@
-<dialog appDialog #dialog title="More Submissions">
+<dialog appDialog #more_submissions_dialog title="More Submissions">
     <ng-template appDialogContent>
-      <div>
-        <app-more-submissions></app-more-submissions>
-      </div>
+        <div>
+            <app-more-submissions></app-more-submissions>
+        </div>
     </ng-template>
 </dialog>
+<dialog appDialog #more_submissions_dialog2 title="More Submissions">
+    <ng-template appDialogContent>
+        <div>
+            <app-create-submission></app-create-submission>
+        </div>
+    </ng-template>
+</dialog>
+
 <div class="submission-table-container">
     <table class="submission-table box-shadow">
         <thead>
             <tr>
                 <th>User Name</th>
-                <th>Date Posted</th>
+                <th>Date</th>
                 <th>Time</th>
-                <th>Rating</th>
             </tr>
         </thead>
         <tbody *ngFor="let submission of submissions; even as isEven;">
@@ -20,10 +27,9 @@
                 <td>{{submission.userName}}</td>
                 <td>{{submission.datePosted | date: 'medium'}}</td>
                 <td>{{submission.time | timeFormat}}</td>
-                <td>{{submission.rating}}</td>
             </tr>
         </tbody>
     </table>
-    <button class="button-default">Add Submission</button>
-    <button class="button-default" (click)="dialog.showModal()">View More</button>
+    <button class="button-default" (click)="more_submissions_dialog2.showModal()">Add Submission</button>
+    <!-- <button class="button-default" (click)="more_submissions_dialog.showModal()">View More</button> -->
 </div>

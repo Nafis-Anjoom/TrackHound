@@ -9,6 +9,7 @@
     width: 100%;
     height: calc(99vh - var(--nav-bar-height));
     background-color: var(--light);
+    background-color: beige;
     justify-content: center;
 }
 

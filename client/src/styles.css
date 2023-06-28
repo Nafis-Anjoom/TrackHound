@@ -4,6 +4,8 @@
     --semi-dark: #61876E;
     --semi-light: #A6BB8D;
     --light: #EAE7B1;
+    
+    --dialog-header-height: 60px;
 }
 
 html, body {
@@ -15,7 +17,20 @@ html, body {
 dialog {
     max-width: 900px;
     width: 100%;
+    max-height: 75%;
     border: none;
+    overflow-y: auto;
+    padding-top: 0;
+}
+
+dialog header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: var(--semi-light);
+    padding: 0px 10px;
+    z-index: 2;
+    height: var(--dialog-header-height);
 }
 
 .button-default {

@@ -9,6 +9,7 @@ import { TrailInfoModule } from './trail-info/trail-info.module';
 import { TrackSubmissionsModule } from './track-submissions/track-submissions.module';
 import { ReviewsModule } from './reviews/reviews.module';
 import { RatingsModule } from './ratings/ratings.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RatingsModule } from './ratings/ratings.module';
     TrailInfoModule,
     TrackSubmissionsModule,
     ReviewsModule,
-    RatingsModule
+    RatingsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

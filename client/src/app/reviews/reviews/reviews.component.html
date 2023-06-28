@@ -1,7 +1,14 @@
-<dialog appDialog #dialog title="More Submissions">
+<dialog appDialog #more_reviews_dialog title="More Reviews">
     <ng-template appDialogContent>
       <div>
         <app-more-reviews></app-more-reviews>
+      </div>
+    </ng-template>
+</dialog>
+<dialog appDialog #post_review_dialog title="Post Review">
+    <ng-template appDialogContent>
+      <div>
+          <app-create-review></app-create-review>
       </div>
     </ng-template>
 </dialog>
@@ -16,10 +23,10 @@
                 <div class="review-title">{{review.title}}</div>
                 <span class="user-name">{{review.author.userName}}</span>
                 <span class="date-posted">{{review.datePosted}}</span>
-            </div> 
+            </div>
             <div class="review-body">{{review.body}}</div>
         </div>
     </div>
-    <button class="button-default">Add Review</button>
-    <button class="button-default" (click)="dialog.showModal()">View More</button>
+    <button class="button-default" (click)="post_review_dialog.showModal()">Add Review</button>
+    <button class="button-default" (click)="more_reviews_dialog.showModal()">View More</button>
 </div>
