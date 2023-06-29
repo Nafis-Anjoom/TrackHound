@@ -10,74 +10,62 @@ export class MoreSubmissionsComponent {
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     },
     {
       userName: "john doe",
       time: 13745000,
-      rating: 4,
-      datePosted: new Date("2023-05-30T12:34:56Z") 
+      datePosted: new Date("2023-05-30T12:34:56Z")
     }
-  ] 
+  ]
 }
