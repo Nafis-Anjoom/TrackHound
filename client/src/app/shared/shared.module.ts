@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DialogComponent } from './dialog/dialog.component';
-import { DialogFooterDirective } from './dialog-footer.directive';
-import { DialogContentDirective } from './dialog-content.directive';
-import { DialogHeaderDirective } from './dialog-header.directive';
+import { DialogFooterDirective } from './dialog/dialog-footer.directive';
+import { DialogContentDirective } from './dialog/dialog-content.directive';
+import { DialogHeaderDirective } from './dialog/dialog-header.directive';
 
 @NgModule({
   declarations: [

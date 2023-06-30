@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-track-submissions',
-  templateUrl: './track-submissions.component.html',
-  styleUrls: ['./track-submissions.component.css']
+  templateUrl: './submissions.component.html',
+  styleUrls: ['./submissions.component.css']
 })
 export class TrackSubmissionsComponent {
   submissions = [

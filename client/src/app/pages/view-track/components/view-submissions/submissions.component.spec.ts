@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrackSubmissionsComponent } from './track-submissions.component';
+import { TrackSubmissionsComponent } from './submissions.component';
 
 describe('TrackSubmissionsComponent', () => {
   let component: TrackSubmissionsComponent;

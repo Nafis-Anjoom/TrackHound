@@ -7,9 +7,9 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { DialogContentDirective} from '../dialog-content.directive';
-import { DialogFooterDirective } from '../dialog-footer.directive';
-import { DialogHeaderDirective } from '../dialog-header.directive';
+import { DialogContentDirective} from './dialog-content.directive';
+import { DialogFooterDirective } from './dialog-footer.directive';
+import { DialogHeaderDirective } from './dialog-header.directive';
 
 @Component({
   selector: '[appDialog]',
