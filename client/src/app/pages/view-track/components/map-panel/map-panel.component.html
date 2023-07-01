@@ -1,3 +1,6 @@
-<div class="map-container" *ngIf="apiLoaded | async">
+<div class="map-container" *ngIf="apiLoaded | async; else red_block">
   <google-map height="100%" width="100%"></google-map>
 </div>
+<ng-template #red_block>
+  <div [style]="{height: '100%', width: '100%', backgroundColor: 'red'}"></div>
+</ng-template>

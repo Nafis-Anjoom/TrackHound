@@ -11,4 +11,4 @@ declare namespace NodeJS {
         URL: string;
     }
 }
-export {}
+export { }

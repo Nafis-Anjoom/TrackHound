@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TrackHeaderComponent } from './components/track-header/track-header.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
-import { CreateSubmissionComponent } from './components/create-submission/create-submission.component';
-import { TrackSubmissionsComponent } from './components/view-submissions/submissions.component';
-import { MoreSubmissionsComponent } from './components/view-more-submissions/more-submissions.component';
-import { ReviewsComponent } from './components/view-reviews/reviews.component';
-import { MoreReviewsComponent } from './components/view-more-reviews/more-reviews.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { TimeFormat } from 'src/app/pipes/time-format.pipe';
-import { ViewTrackComponent } from './view-track.component';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { MapPanelComponent } from './components/map-panel/map-panel.component';
-import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
+import { TrackHeaderComponent } from './components/track-header/track-header.component';
 
+import { CreateSubmissionComponent } from './components/create-submission/create-submission.component';
+import { TrackSubmissionsComponent } from './components/view-submissions/submissions.component';
+import { MoreSubmissionsComponent } from './components/view-more-submissions/more-submissions.component';
+
+import { ReviewsComponent } from './components/view-reviews/reviews.component';
+import { MoreReviewsComponent } from './components/view-more-reviews/more-reviews.component';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
+
+import { ViewTrackComponent } from './view-track.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapPanelComponent } from './components/map-panel/map-panel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,6 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     MoreReviewsComponent,
     MoreSubmissionsComponent,
     ReviewsComponent,
-    TimeFormat,
     ViewTrackComponent,
     MapPanelComponent,
     CreateReviewComponent

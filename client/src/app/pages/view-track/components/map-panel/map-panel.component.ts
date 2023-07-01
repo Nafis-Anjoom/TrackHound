@@ -14,11 +14,11 @@ export class MapPanelComponent {
   apiLoaded: Observable<boolean>;
 
   constructor(httpClient: HttpClient) {
-    this.apiLoaded = httpClient.jsonp(`https://maps.googleapis.com/maps/api/js?key=${env['GOOGLE_MAPS_API_KEY']}`, 'callback')
+    this.apiLoaded = env.SHOULD_LOAD_MAP ? httpClient.jsonp(`https://maps.googleapis.com/maps/api/js?key=${env['GOOGLE_MAPS_API_KEY']}`, 'callback')
       .pipe(
         map(() => true),
         catchError(() => of(false)),
-      );
+      ) : of(false);
   }
 
 }

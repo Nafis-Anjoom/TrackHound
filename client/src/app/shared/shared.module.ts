@@ -4,13 +4,15 @@ import { DialogComponent } from './dialog/dialog.component';
 import { DialogFooterDirective } from './dialog/dialog-footer.directive';
 import { DialogContentDirective } from './dialog/dialog-content.directive';
 import { DialogHeaderDirective } from './dialog/dialog-header.directive';
+import { TimeFormat } from './pipes/time-format.pipe';
 
 @NgModule({
   declarations: [
     DialogComponent,
     DialogFooterDirective,
     DialogContentDirective,
-    DialogHeaderDirective
+    DialogHeaderDirective,
+    TimeFormat
   ],
   imports: [
     CommonModule
@@ -19,7 +21,8 @@ import { DialogHeaderDirective } from './dialog/dialog-header.directive';
     DialogComponent,
     DialogFooterDirective,
     DialogContentDirective,
-    DialogHeaderDirective
+    DialogHeaderDirective,
+    TimeFormat
   ]
 })
 export class SharedModule { }
