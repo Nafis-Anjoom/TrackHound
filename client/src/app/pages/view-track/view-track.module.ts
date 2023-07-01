@@ -14,6 +14,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { MapPanelComponent } from './components/map-panel/map-panel.component';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     SharedModule,
     GoogleMapsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   exports: [
     ViewTrackComponent

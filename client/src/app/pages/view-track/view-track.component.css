@@ -1,0 +1,23 @@
+.app-map-panel-container {
+    display: flex;
+    width: 40%;
+    height: 100%;
+}
+
+.content-center {
+    display: flex;
+    background-color: white;
+    width: 100%;
+}
+
+.app-map-panel {
+    width: 50%;
+    height: 100%;
+}
+
+.trail-content-container {
+    padding: 1rem;
+    /* flex-grow: 1; */
+    width: 50%;
+    overflow-y: auto;
+}
