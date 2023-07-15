@@ -1,0 +1,29 @@
+<div class="create-track-wrapper">
+    <form>
+        <div>
+            <label for="title">Title</label>
+            <input id="title" />
+            <label for="location">Starting Location</label>
+            <div class="initial_location">
+                <div>
+                    <span>Latitude: </span>
+                    <input />
+                </div>
+                <div>
+                    <span>Longitude: </span>
+                    <input />
+                </div>
+                <button class="update_locaiton_button" (click)="updateStartingLocation">Update</button>
+            </div>
+            <label>Map</label>
+            <div class="map">
+                <app-create-map></app-create-map>
+            </div>
+            <label>Checkpoints</label>
+            <div class="checkpoints">
+
+            </div>
+            <button class="button-default" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

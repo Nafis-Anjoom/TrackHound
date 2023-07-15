@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewTrackModule } from './pages/view-track/view-track.module';
+import { CreateTrackModule } from './pages/create-track/create-track.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ViewTrackModule } from './pages/view-track/view-track.module';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ViewTrackModule
+    ViewTrackModule,
+    CreateTrackModule
   ],
   providers: [],
   bootstrap: [AppComponent]

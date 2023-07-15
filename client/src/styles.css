@@ -54,3 +54,13 @@ dialog header {
 .box-shadow {
     box-shadow: 0 5px 5px -3px var(--semi-dark),0 8px 10px 1px var(--semi-light), 3px 14px 2px var(--light);
 }
+
+.main-content {
+    display: flex;
+    width: 100%;
+    height: calc(99vh - var(--nav-bar-height));
+    background-color: var(--light);
+    background-color: beige;
+    justify-content: center;
+    overflow-y: auto;
+}
