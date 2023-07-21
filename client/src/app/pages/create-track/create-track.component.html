@@ -1,5 +1,5 @@
 <div class="create-track-wrapper">
-    <form>
+    <form [formGroup]="startingLocation">
         <div>
             <label for="title">Title</label>
             <input id="title" />
@@ -7,21 +7,21 @@
             <div class="initial_location">
                 <div>
                     <span>Latitude: </span>
-                    <input />
+                    <input formControlName="lat"/>
                 </div>
                 <div>
                     <span>Longitude: </span>
-                    <input />
+                    <input formControlName="lng"/>
                 </div>
-                <button class="update_locaiton_button" (click)="updateStartingLocation">Update</button>
+                <button class="update_locaiton_button" (click)="updateStartingLocation()">Update</button>
             </div>
             <label>Map</label>
             <div class="map">
-                <app-create-map></app-create-map>
+                <app-create-map [startingLocation]="parsedStartedLocation"></app-create-map>
             </div>
             <label>Checkpoints</label>
-            <div class="checkpoints">
-
+            <div class="map">
+                <app-checkpoints></app-checkpoints>
             </div>
             <button class="button-default" type="submit">Submit</button>
         </div>

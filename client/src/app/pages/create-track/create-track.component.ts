@@ -5,6 +5,11 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import env from "env";
 
+interface Location {
+  lat: number,
+  lng: number
+};
+
 @Component({
   selector: 'app-create-track',
   templateUrl: './create-track.component.html',
@@ -12,13 +17,21 @@ import env from "env";
 })
 export class CreateTrackComponent {
   title = new FormControl('');
-  startingLocation = new FormControl<[lat: number, lng: number]>([40, -20]);
-  checkpoints = new FormControl<[lat: number, lng: number][]>([]);
 
   apiLoaded: Observable<boolean>;
 
   options: google.maps.MapOptions = {
     center: { lat: 40, lng: -20 }
+  }
+
+  startingLocation = new FormGroup({
+    lat: new FormControl("40.7128"),
+    lng: new FormControl("-123.1207")
+  });
+  
+  parsedStartedLocation : Location = {
+    lat: 49.2827,
+    lng: -123.1207
   }
 
   constructor(httpClient: HttpClient) {
@@ -30,8 +43,10 @@ export class CreateTrackComponent {
   }
 
   updateStartingLocation() {
-    this.options = {
-
-    }
+    const loc = this.startingLocation.getRawValue();
+    this.parsedStartedLocation = {
+      lat: parseInt(loc.lat ?? "0"),
+      lng: parseInt(loc.lng ?? "0")
+    };
   }
 }

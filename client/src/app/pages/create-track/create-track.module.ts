@@ -5,6 +5,8 @@ import { CreateMapComponent } from './create-map/create-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { CreateTrackService } from './create-track.service';
+import { CheckpointsComponent } from './checkpoints/checkpoints.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   providers: [
@@ -12,13 +14,16 @@ import { CreateTrackService } from './create-track.service';
   ],
   declarations: [
     CreateTrackComponent,
-    CreateMapComponent
+    CreateMapComponent,
+    CheckpointsComponent
   ],
   imports: [
     CommonModule,
     GoogleMapsModule,
     HttpClientJsonpModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CreateTrackComponent

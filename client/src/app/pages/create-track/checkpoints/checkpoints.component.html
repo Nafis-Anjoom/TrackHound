@@ -1,0 +1,15 @@
+<div class="checkpoints-container">
+    <ol *ngFor="let checkpoint of coordinates; index as i">
+        <li [value]="i + 1">
+            <button (click)="removeCheckpoint(i)">
+                <span>
+                    {{checkpoint.lat}}
+                </span>
+                <span>, </span>
+                <span>
+                    {{checkpoint.lng}}
+                </span>
+            </button>
+        </li>
+    </ol>
+</div>
